@@ -20,7 +20,7 @@ else
   echo -e "subject: MySQL replication delay on $HOSTNAME\nto: email.recipient@domain.com\n" > $OUTFILE
   echo "delay is $DELAY" >> $OUTFILE
   mysql -e "show slave status \G" >> $OUTFILE
-  mysqladmin processlist >> $OUTFILE
+  mysql -e "show full processlist" >> $OUTFILE
   /usr/sbin/sendmail -t < $OUTFILE
 fi     
 
