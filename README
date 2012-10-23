@@ -1,4 +1,4 @@
 Open source scripts created by Michael Wehrle (knoxvilledba atsign gmail) for managing MySQL 
 
-scriptname: summary purpose
-scriptname: summary purpose
+pt-heartbeat.test.sh: intended to test for replication lag with percona heartbeat and email alert along with diagnostics
+
