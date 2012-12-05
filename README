@@ -2,3 +2,7 @@ Open source scripts created by Michael Wehrle (knoxvilledba atsign gmail) for ma
 
 pt-heartbeat.test.sh: intended to test for replication lag with percona heartbeat and email alert along with diagnostics
 
+awake_threads/: utility to save processlist into an archive table for later review
+awake_threads/awake_threads.sh:  script to save processlist into an archive table for later review
+awake_threads/ddl.sql: sql script to create new database, and table for awake_threads
+
