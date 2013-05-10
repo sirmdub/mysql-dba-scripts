@@ -1,12 +1,13 @@
 #!/bin/bash
 
 if [ -z $1 ]; then #default to standard location
- export BINLOGSDIR=/opt/mysql/data/binlogs
+ export BINLOGSDIR=/opt/mysql/data
 else
  export BINLOGSDIR=$1
 fi
 
-export BINLOGSINDEX=$BINLOGSDIR/mysql-bin.index
+export INDEXFILE=`hostname`-bin.index
+export BINLOGSINDEX=$BINLOGSDIR/$INDEXFILE
 export BACKUPDIR=/opt/mysql/db_backup/`hostname`/arch_binlogs/
 mkdir -p $BACKUPDIR
 export DATEAPPEND=`date +'%Y%m%d_%H%M%S'`
@@ -19,7 +20,7 @@ time for i in $(head -n -1 $BINLOGSINDEX); do
    if [ ! -f $BACKUPDIR/`basename $i`.gz ] 
    then
       echo $i;
-      gzip -cv $i > $BACKUPDIR/`basename $i`.gz
+      gzip -cv $BINLOGSDIR/`basename $i` > $BACKUPDIR/`basename $i`.gz
    fi
 done
 
