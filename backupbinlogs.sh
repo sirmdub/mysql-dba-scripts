@@ -16,7 +16,6 @@ export DATEAPPEND=`date +'%Y%m%d_%H%M%S'`
 mysql -e "flush binary logs"
 
 #cp all binlogs except for current one (last row in index file)
-cd $BINLOGSDIR
 time for i in $(head -n -1 $BINLOGSINDEX); do 
    if [ ! -f $BACKUPDIR/`basename $i`.gz ] 
    then
